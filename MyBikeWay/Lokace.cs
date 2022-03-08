@@ -38,5 +38,13 @@ namespace MyBikeWay
             SouradniceY = souradniceY;
             VzdalenostOdVychozi = vzdalenost;
         }
+        /// <summary>
+        /// Vypíše jméno lokace a její vzdálenost od výchozí hodnoty
+        /// </summary>
+        /// <returns></returns>
+        public override string ToString()
+        {
+            return string.Format($"{Nazev} je vzdálený od výchozí lokace o {VzdalenostOdVychozi}");
+        }
     }
 }
