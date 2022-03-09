@@ -27,10 +27,10 @@ namespace MyBikeWay
         /// <summary>
         /// Constructor with properties inicialization
         /// </summary>
-        /// <param name="Name"></param>
-        /// <param name="CoordinateX"></param>
-        /// <param name="CoordinateY"></param>
-        /// <param name="StartingPointDistance"></param>
+        /// <param name="Name">Location name</param>
+        /// <param name="CoordinateX">Coordinate X</param>
+        /// <param name="CoordinateY">Coordinate Y</param>
+        /// <param name="StartingPointDistance">Distance from default point</param>
         public Location(string name, double coordinateX, double coordinateY, double distance)
         {
             Name = name;
@@ -39,12 +39,22 @@ namespace MyBikeWay
             StartingPointDistance = distance;
         }
         /// <summary>
+        /// Constructor overload for name and distance only
+        /// </summary>
+        /// <param name="name">Location name</param>
+        /// <param name="distance">Distance from defualt point</param>
+        public Location(string name, double distance)
+        {
+            Name = name;
+            StartingPointDistance = distance;
+        }
+        /// <summary>
         /// Returns name and distance from default point as string
         /// </summary>
         /// <returns></returns>
         public override string ToString()
         {
-            return string.Format($"{Name} je vzdálený od výchozí lokace o {StartingPointDistance} km");
+            return string.Format($"{Name} is {StartingPointDistance} km away from the starting location");
         }
     }
 }

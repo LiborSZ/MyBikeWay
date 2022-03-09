@@ -31,6 +31,15 @@ namespace MyBikeWay
             locations.Add(new Location(name, coordinateX, coordinateY, distance));
         }
         /// <summary>
+        /// Method to add locatiod into list based on name and distance params
+        /// </summary>
+        /// <param name="name">Location name</param>
+        /// <param name="distance">Distance from default point</param>
+        public void AddLoaction(string name, double distance)
+        {
+            locations.Add(new Location(name, distance));
+        }
+        /// <summary>
         /// LINQ query to find and return location by name
         /// </summary>
         /// <param name="name">Location name</param>
@@ -41,8 +50,6 @@ namespace MyBikeWay
             var locationQuery = from loc in locations
                                 where loc.Name == name
                                 select loc;
-
-
             foreach (Location loc in locationQuery)
             {
                     return loc;
@@ -51,5 +58,28 @@ namespace MyBikeWay
             return null;
             
         }
-    }
+        /// <summary>
+        /// Removing method for locations DB
+        /// </summary>
+        /// <param name="name">Location name</param>
+        public void DeleteLocation(string name)
+        {
+            List<Location> found = new List<Location>();
+            found.Add(FindLocation(name));
+            foreach (Location loc in found)
+            {
+                if(loc.Name == name)
+                {
+                    locations.Remove(loc);
+                    Console.WriteLine("Location {0} removed", name);
+                }
+                else
+                {
+                    Console.Write("Location was not found");
+                }
+            }
+          
+            
+        }
+        }
 }
