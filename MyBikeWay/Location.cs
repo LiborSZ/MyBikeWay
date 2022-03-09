@@ -9,7 +9,7 @@ namespace MyBikeWay
     internal class Location
     {
         /// <summary>
-        /// Location name (city / village etc.)
+        /// Location name (city or village etc.)
         /// </summary>
         public string Name { get; private set; }
         /// <summary>
