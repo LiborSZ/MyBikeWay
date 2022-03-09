@@ -23,7 +23,7 @@ namespace MyBikeWay
         /// <summary>
         /// Distance in Km from default point
         /// </summary>
-        public int StartingPointDistance { get; private set; }
+        public double StartingPointDistance { get; private set; }
         /// <summary>
         /// Constructor with properties inicialization
         /// </summary>
@@ -31,7 +31,7 @@ namespace MyBikeWay
         /// <param name="CoordinateX"></param>
         /// <param name="CoordinateY"></param>
         /// <param name="StartingPointDistance"></param>
-        public Location(string name, double coordinateX, double coordinateY, int distance)
+        public Location(string name, double coordinateX, double coordinateY, double distance)
         {
             Name = name;
             CoordinateX = coordinateX;
@@ -44,7 +44,7 @@ namespace MyBikeWay
         /// <returns></returns>
         public override string ToString()
         {
-            return string.Format($"{Name} je vzdálený od výchozí lokace o {StartingPointDistance}");
+            return string.Format($"{Name} je vzdálený od výchozí lokace o {StartingPointDistance} km");
         }
     }
 }
