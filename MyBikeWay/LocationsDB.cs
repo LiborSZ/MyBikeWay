@@ -80,6 +80,38 @@ namespace MyBikeWay
 
         }
 
+        public void UpdateLocationName(string name, string newName)
+        {
+          var locationQuery = locations.Find(n => n.Name == name);
+          if (locationQuery != null)
+            {
+                locationQuery.Name = newName;
+            }
+        }
+        public void UpdateLocationX(string name, double newCoordinateX)
+        {
+            var locationQuery = locations.Find(n => n.Name == name);
+            if (locationQuery != null)
+            {
+                locationQuery.CoordinateX = newCoordinateX;
+            }
+        }
+        public void UpdateLocationY(string name, double newCoordinateY)
+        {
+            var locationQuery = locations.Find(n => n.Name == name);
+            if (locationQuery != null)
+            {
+                locationQuery.CoordinateY = newCoordinateY;
+            }
+        }
+        public void UpdateLocationDistance(string name, double newDefaultPoint)
+        {
+            var locationQuery = locations.Find(n => n.Name == name);
+            if (locationQuery != null)
+            {
+                locationQuery.StartingPointDistance = newDefaultPoint;
+            }
+        }
 
     }
 }

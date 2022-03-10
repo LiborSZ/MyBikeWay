@@ -11,19 +11,19 @@ namespace MyBikeWay
         /// <summary>
         /// Location name (city or village etc.)
         /// </summary>
-        public string Name { get; private set; }
+        public string Name { get; set; }
         /// <summary>
         /// Coordinate X in decimal degrees (format xx.xxxxx)
         /// </summary>
-        public double CoordinateX { get; private set; }
+        public double CoordinateX { get;  set; }
         /// <summary>
         /// Coordinate Y in decimal degrees (format yy.yyyyyy)
         /// </summary>
-        public double CoordinateY { get; private set; }
+        public double CoordinateY { get;  set; }
         /// <summary>
         /// Distance in Km from default point
         /// </summary>
-        public double StartingPointDistance { get; private set; }
+        public double StartingPointDistance { get;  set; }
         /// <summary>
         /// Constructor with properties inicialization
         /// </summary>
