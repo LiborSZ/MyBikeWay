@@ -79,7 +79,11 @@ namespace MyBikeWay
             }
 
         }
-
+        /// <summary>
+        /// Name update method based on name
+        /// </summary>
+        /// <param name="name">Current name</param>
+        /// <param name="newName">New name</param>
         public void UpdateLocationName(string name, string newName)
         {
           var locationQuery = locations.Find(n => n.Name == name);
@@ -88,6 +92,11 @@ namespace MyBikeWay
                 locationQuery.Name = newName;
             }
         }
+        /// <summary>
+        /// Coordinate X update method based on name
+        /// </summary>
+        /// <param name="name">Current name</param>
+        /// <param name="newCoordinateX">New coordinateX decimal number</param>
         public void UpdateLocationX(string name, double newCoordinateX)
         {
             var locationQuery = locations.Find(n => n.Name == name);
@@ -96,6 +105,11 @@ namespace MyBikeWay
                 locationQuery.CoordinateX = newCoordinateX;
             }
         }
+        /// <summary>
+        /// Coordinte Y update method based on name
+        /// </summary>
+        /// <param name="name">Current name</param>
+        /// <param name="newCoordinateY">New coordinate Y decimal number</param>
         public void UpdateLocationY(string name, double newCoordinateY)
         {
             var locationQuery = locations.Find(n => n.Name == name);
@@ -104,6 +118,11 @@ namespace MyBikeWay
                 locationQuery.CoordinateY = newCoordinateY;
             }
         }
+        /// <summary>
+        /// Distance from default point update method based on name
+        /// </summary>
+        /// <param name="name">Current name</param>
+        /// <param name="newDefaultPoint">New distance decimal number (Km)</param>
         public void UpdateLocationDistance(string name, double newDefaultPoint)
         {
             var locationQuery = locations.Find(n => n.Name == name);
