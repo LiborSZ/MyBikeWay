@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MyBikeWay
 {
@@ -44,19 +42,20 @@ namespace MyBikeWay
         /// </summary>
         /// <param name="name">Location name</param>
         /// <returns>Location if found</returns>
-        public Location FindLocation (string name)
+        public Location FindLocation(string name)
         {
-            
+
             var locationQuery = from loc in locations
                                 where loc.Name == name
+                                orderby loc.StartingPointDistance
                                 select loc;
             foreach (Location loc in locationQuery)
             {
-                    return loc;
+                return loc;
             }
             Console.Write("Location was not found");
             return null;
-            
+
         }
         /// <summary>
         /// Removing method for locations DB
@@ -68,7 +67,7 @@ namespace MyBikeWay
             found.Add(FindLocation(name));
             foreach (Location loc in found)
             {
-                if(loc.Name == name)
+                if (loc.Name == name)
                 {
                     locations.Remove(loc);
                     Console.WriteLine("Location {0} removed", name);
@@ -78,8 +77,9 @@ namespace MyBikeWay
                     Console.Write("Location was not found");
                 }
             }
-          
-            
+
         }
-        }
+
+
+    }
 }
