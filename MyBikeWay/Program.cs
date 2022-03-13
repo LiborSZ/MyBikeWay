@@ -6,7 +6,7 @@ namespace MyBikeWay
     {
         static void Main(string[] args)
         {
-            
+
         }
     }
 }

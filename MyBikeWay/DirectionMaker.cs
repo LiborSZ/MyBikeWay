@@ -23,9 +23,56 @@ namespace MyBikeWay
         {
             database = new LocationsDB();
         }
-
-
-
+        /// <summary>
+        /// Method for getting user input for adding new location to the database with coordinates
+        /// </summary>
+        public void AddLocationWithCoordinates()
+        {
+            Console.WriteLine("Insert location name");
+            string text;
+            while (string.IsNullOrEmpty(text = Console.ReadLine()))
+            {
+                Console.WriteLine("Name cannot be empty, please insert name again");
+            }
+            Console.WriteLine("Insert coordinate X");
+            double x;
+            while (!double.TryParse(Console.ReadLine(), out x))
+            {
+                Console.WriteLine("Please insert number / decimal number only");
+            }
+            double y;
+            Console.WriteLine("Insert coordinate Y");
+            while (!double.TryParse(Console.ReadLine(), out y))
+            {
+                Console.WriteLine("Please insert number / decimal number only");
+            }
+            double distance;
+            Console.WriteLine("Insert coordinate distance from default point");
+            while (!double.TryParse(Console.ReadLine(), out distance))
+            {
+                Console.WriteLine("Please insert number / decimal number only");
+            }
+            database.AddLoaction(text,x,y,distance);
+        }
+        /// <summary>
+        /// Method for getting user input for adding new location to the database without coordinates
+        /// </summary>
+        public void AddLocationWithoutCoordinates()
+        {
+            Console.WriteLine("Insert location name");
+            string text;
+            while (string.IsNullOrEmpty(text = Console.ReadLine()))
+            {
+                Console.WriteLine("Name cannot be empty, please insert name again");
+            }
+            double distance;
+            Console.WriteLine("Insert coordinate distance from default point");
+            while (!double.TryParse(Console.ReadLine(), out distance))
+            {
+                Console.WriteLine("Please insert number / decimal number only");
+            }
+            database.AddLoaction(text, distance);
+        }
 
     } 
 }
