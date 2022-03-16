@@ -21,7 +21,7 @@ namespace MyBikeWay
         /// </summary>
         public double CoordinateY { get;  set; }
         /// <summary>
-        /// Distance in Km from default point
+        /// Distance in Km from previous point
         /// </summary>
         public double PreviousPointDistance { get;  set; }
         /// <summary>
@@ -30,7 +30,7 @@ namespace MyBikeWay
         /// <param name="Name">Location name</param>
         /// <param name="CoordinateX">Coordinate X</param>
         /// <param name="CoordinateY">Coordinate Y</param>
-        /// <param name="StartingPointDistance">Distance from default point</param>
+        /// <param name="StartingPointDistance">Distance from previous point</param>
         public Location(string name, double coordinateX, double coordinateY, double distance)
         {
             Name = name;
@@ -49,7 +49,7 @@ namespace MyBikeWay
             PreviousPointDistance = distance;
         }
         /// <summary>
-        /// Returns name and distance from default point as string
+        /// Returns name and distance from previous point as string
         /// </summary>
         /// <returns></returns>
         public override string ToString()

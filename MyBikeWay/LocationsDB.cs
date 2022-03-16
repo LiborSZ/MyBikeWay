@@ -23,7 +23,7 @@ namespace MyBikeWay
         /// <param name="name">Location name</param>
         /// <param name="coordinateX">Location coordinate X</param>
         /// <param name="coordinateY">Location coordinate Y</param>
-        /// <param name="distance">Distance from default point</param>
+        /// <param name="distance">Distance from previous point</param>
         public void AddLoaction(string name, double coordinateX, double coordinateY, double distance)
         {
             locations.Add(new Location(name, coordinateX, coordinateY, distance));
@@ -33,7 +33,7 @@ namespace MyBikeWay
         /// Method to add locatiod into list based on name and distance params
         /// </summary>
         /// <param name="name">Location name</param>
-        /// <param name="distance">Distance from default point</param>
+        /// <param name="distance">Distance from previous point</param>
         public void AddLoaction(string name, double distance)
         {
             locations.Add(new Location(name, distance));
@@ -121,7 +121,7 @@ namespace MyBikeWay
             }
         }
         /// <summary>
-        /// Distance from default point update method based on name
+        /// Distance from previous point update method based on name
         /// </summary>
         /// <param name="name">Current name</param>
         /// <param name="newDefaultPoint">New distance decimal number (Km)</param>
@@ -133,6 +133,13 @@ namespace MyBikeWay
                 locationQuery.PreviousPointDistance = newPreviousPoint;
             }
         }
-
+        /// <summary>
+        /// Returns last added location into List of locations
+        /// </summary>
+        /// <returns></returns>
+        public Location returnLast()
+        {
+            return locations.Last();
+        }
     }
 }

@@ -28,7 +28,7 @@ namespace MyBikeWay
         /// <summary>
         /// Method for getting user input for adding new location to the database with coordinates
         /// </summary>
-        public void AddLocationWithCoordinates()
+        private Location AddLocationWithCoordinates()
         {
             Console.WriteLine("Insert location name");
             string text;
@@ -37,6 +37,12 @@ namespace MyBikeWay
                 Console.WriteLine("Name cannot be empty, please insert name again");
             }
             Console.WriteLine("Insert coordinate X");
+            double distance;
+            Console.WriteLine("Insert distance from previous point");
+            while (!double.TryParse(Console.ReadLine(), out distance))
+            {
+                Console.WriteLine("Please insert number / decimal number only");
+            }
             double x;
             while (!double.TryParse(Console.ReadLine(), out x))
             {
@@ -48,18 +54,14 @@ namespace MyBikeWay
             {
                 Console.WriteLine("Please insert number / decimal number only");
             }
-            double distance;
-            Console.WriteLine("Insert distance from previous point");
-            while (!double.TryParse(Console.ReadLine(), out distance))
-            {
-                Console.WriteLine("Please insert number / decimal number only");
-            }
-            database.AddLoaction(text,x,y,distance);
+
+            database.AddLoaction(text, x, y, distance);
+            return database.returnLast();
         }
         /// <summary>
         /// Method for getting user input for adding new location to the database without coordinates
         /// </summary>
-        public void AddLocationWithoutCoordinates()
+        private Location AddLocationWithoutCoordinates()
         {
             Console.WriteLine("Insert location name");
             string text;
@@ -68,14 +70,30 @@ namespace MyBikeWay
                 Console.WriteLine("Name cannot be empty, please insert name again");
             }
             double distance;
-            Console.WriteLine("Insert coordinate distance from default point");
+            Console.WriteLine("Insert coordinate distance from previous point");
             while (!double.TryParse(Console.ReadLine(), out distance))
             {
                 Console.WriteLine("Please insert number / decimal number only");
             }
             database.AddLoaction(text, distance);
+            return database.returnLast();
         }
-
+        /// <summary>
+        /// Add first point into linked list
+        /// </summary>
+        /// <param name="withCoordinates"></param>
+        public void AddFirstPoint(bool withCoordinates)
+        {
+            if (withCoordinates)
+            {
+                directions.AddFirst(AddLocationWithCoordinates());
+            }
+            else
+            {
+                directions.AddFirst(AddLocationWithoutCoordinates());
+            }
+            
+        }
       
     } 
 }
