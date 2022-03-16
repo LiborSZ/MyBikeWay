@@ -82,7 +82,7 @@ namespace MyBikeWay
         /// Add location into direction linked list or DB
         /// </summary>
         /// <param name="withCoordinates"></param>
-        public void AddLocationDirection(bool db, bool withCoordinates)
+        public void AddLocationDirection(bool withCoordinates)
         {  
                 if (withCoordinates)
                 {
@@ -138,7 +138,59 @@ namespace MyBikeWay
             directions.AddLast(database.FindLocation(name));
         }
 
+        /// <summary>
+        /// Method for location atribute update
+        /// </summary>
+        /// <param name="name"></param>
+        public void UpdateLocation(string name)
+        {
+            string atribute;
+            string newName;
+            double newCoordinate;
+            Console.WriteLine("Enter atribute to update or Exit: ");
+            Console.WriteLine("Name | Distance | Location X | Location Y | Exit");
 
+            while (string.IsNullOrEmpty(atribute = Console.ReadLine().ToLower()))
+            {
+                Console.WriteLine("Please enter atribute to update: ");
+            }
+
+            switch (atribute) 
+            {
+                case "name":
+                    while (string.IsNullOrEmpty(newName = Console.ReadLine()))
+                    {
+                        Console.WriteLine("Please enter new name: ");
+                    }
+                    database.UpdateLocationName(name, newName);
+                    break;
+                case "distance":
+                    while (!double.TryParse(Console.ReadLine(), out newCoordinate))
+                    {
+                        Console.WriteLine("Please enter new coordinate: ");
+                    }
+                    database.UpdateLocationDistance(name, newCoordinate);
+                    break;
+                case "location x":
+                    while (!double.TryParse(Console.ReadLine(), out newCoordinate))
+                    {
+                        Console.WriteLine("Please enter new coordinate: ");
+                    }
+                    database.UpdateLocationDistance(name, newCoordinate);
+                    break;
+                case "location y":
+                    while (!double.TryParse(Console.ReadLine(), out newCoordinate))
+                    {
+                        Console.WriteLine("Please enter new coordinate: ");
+                    }
+                    database.UpdateLocationDistance(name, newCoordinate);
+                    break;
+                case "exit":
+                    break;
+
+            }
+
+        }
         
     } 
     

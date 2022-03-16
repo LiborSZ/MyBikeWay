@@ -6,8 +6,7 @@ namespace MyBikeWay
     {
         static void Main(string[] args)
         {
-            var d = new DirectionMaker();
-            d.AddLocationWithCoordinates();
+
         }
     }
 }
