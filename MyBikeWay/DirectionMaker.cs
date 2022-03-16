@@ -36,13 +36,13 @@ namespace MyBikeWay
             {
                 Console.WriteLine("Name cannot be empty, please insert name again");
             }
-            Console.WriteLine("Insert coordinate X");
             double distance;
-            Console.WriteLine("Insert distance from previous point");
+            Console.WriteLine("Insert distance from previous point (inser 0 if default point");
             while (!double.TryParse(Console.ReadLine(), out distance))
             {
                 Console.WriteLine("Please insert number / decimal number only");
             }
+            Console.WriteLine("Insert coordinate X");
             double x;
             while (!double.TryParse(Console.ReadLine(), out x))
             {
@@ -79,21 +79,38 @@ namespace MyBikeWay
             return database.returnLast();
         }
         /// <summary>
-        /// Add first point into linked list
+        /// Add location into linked list
         /// </summary>
         /// <param name="withCoordinates"></param>
-        public void AddFirstPoint(bool withCoordinates)
-        {
-            if (withCoordinates)
-            {
-                directions.AddFirst(AddLocationWithCoordinates());
-            }
-            else
-            {
-                directions.AddFirst(AddLocationWithoutCoordinates());
-            }
-            
+        public void AddLocation(bool withCoordinates)
+        {  
+                if (withCoordinates)
+                {
+                    directions.AddLast(AddLocationWithCoordinates());
+                }
+                else
+                {
+                    directions.AddLast(AddLocationWithoutCoordinates());
+                }
         }
-      
+        /// <summary>
+        /// Writes information about direction from linked list
+        /// </summary>
+        public void WriteDirection()
+        {
+            double directionDistance = 0;
+            double totalDistance = 0;
+            Console.WriteLine("Your derection:");
+            foreach (var d in directions)
+            {
+                totalDistance += d.PreviousPointDistance;
+                directionDistance = d.PreviousPointDistance;
+                
+                Console.Write($"{d.Name} - {directionDistance} Km ");
+            }
+            Console.WriteLine();
+            Console.WriteLine($"Total distance is {totalDistance} Km");
+
+        }
     } 
 }
