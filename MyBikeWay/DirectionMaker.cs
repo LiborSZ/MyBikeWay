@@ -28,7 +28,7 @@ namespace MyBikeWay
         /// <summary>
         /// Method for getting user input for adding new location to the database with coordinates
         /// </summary>
-        private Location AddLocationWithCoordinates()
+        public Location AddLocationWithCoordinates()
         {
             Console.WriteLine("Insert location name");
             string text;
@@ -37,7 +37,7 @@ namespace MyBikeWay
                 Console.WriteLine("Name cannot be empty, please insert name again");
             }
             double distance;
-            Console.WriteLine("Insert distance from previous point (inser 0 if default point");
+            Console.WriteLine("Insert distance from previous point (inser 0 if default point)");
             while (!double.TryParse(Console.ReadLine(), out distance))
             {
                 Console.WriteLine("Please insert number / decimal number only");
@@ -61,7 +61,7 @@ namespace MyBikeWay
         /// <summary>
         /// Method for getting user input for adding new location to the database without coordinates
         /// </summary>
-        private Location AddLocationWithoutCoordinates()
+        public Location AddLocationWithoutCoordinates()
         {
             Console.WriteLine("Insert location name");
             string text;
@@ -79,10 +79,10 @@ namespace MyBikeWay
             return database.returnLast();
         }
         /// <summary>
-        /// Add location into linked list
+        /// Add location into direction linked list or DB
         /// </summary>
         /// <param name="withCoordinates"></param>
-        public void AddLocation(bool withCoordinates)
+        public void AddLocationDirection(bool db, bool withCoordinates)
         {  
                 if (withCoordinates)
                 {
@@ -92,6 +92,7 @@ namespace MyBikeWay
                 {
                     directions.AddLast(AddLocationWithoutCoordinates());
                 }
+            
         }
         /// <summary>
         /// Writes information about direction from linked list
@@ -100,7 +101,7 @@ namespace MyBikeWay
         {
             double directionDistance = 0;
             double totalDistance = 0;
-            Console.WriteLine("Your derection:");
+            Console.WriteLine("Your direction:");
             foreach (var d in directions)
             {
                 totalDistance += d.PreviousPointDistance;
@@ -112,5 +113,33 @@ namespace MyBikeWay
             Console.WriteLine($"Total distance is {totalDistance} Km");
 
         }
+        /// <summary>
+        /// Method for removing location from direction based on name
+        /// </summary>
+        /// <param name="name"></param>
+        public void RemoveLocationDirection(string name)
+        {
+            directions.Remove(database.FindLocation(name));
+        }
+        /// <summary>
+        /// Method for removing location from DB based on name
+        /// </summary>
+        /// <param name="name"></param>
+        public void RemoveLocationDB(string name)
+        {
+            database.DeleteLocation(name);
+        }
+        /// <summary>
+        /// Add location into direction based on existing location
+        /// </summary>
+        /// <param name="name"></param>
+        public void AddExistingLocation(string name)
+        {
+            directions.AddLast(database.FindLocation(name));
+        }
+
+
+        
     } 
+    
 }

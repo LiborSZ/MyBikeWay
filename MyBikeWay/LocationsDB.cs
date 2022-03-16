@@ -37,7 +37,7 @@ namespace MyBikeWay
         public void AddLoaction(string name, double distance)
         {
             locations.Add(new Location(name, distance));
-            
+
         }
         /// <summary>
         /// LINQ query to find and return location by name
