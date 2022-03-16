@@ -23,7 +23,7 @@ namespace MyBikeWay
         /// <summary>
         /// Distance in Km from default point
         /// </summary>
-        public double StartingPointDistance { get;  set; }
+        public double PreviousPointDistance { get;  set; }
         /// <summary>
         /// Constructor with properties inicialization
         /// </summary>
@@ -36,7 +36,7 @@ namespace MyBikeWay
             Name = name;
             CoordinateX = coordinateX;
             CoordinateY = coordinateY;
-            StartingPointDistance = distance;
+            PreviousPointDistance = distance;
         }
         /// <summary>
         /// Constructor overload for name and distance only
@@ -46,7 +46,7 @@ namespace MyBikeWay
         public Location(string name, double distance)
         {
             Name = name;
-            StartingPointDistance = distance;
+            PreviousPointDistance = distance;
         }
         /// <summary>
         /// Returns name and distance from default point as string
@@ -54,7 +54,7 @@ namespace MyBikeWay
         /// <returns></returns>
         public override string ToString()
         {
-            return string.Format($"{Name} is {StartingPointDistance} km away from the starting location");
+            return string.Format($"{Name} is {PreviousPointDistance} km away from the starting location");
         }
     }
 }

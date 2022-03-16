@@ -27,6 +27,7 @@ namespace MyBikeWay
         public void AddLoaction(string name, double coordinateX, double coordinateY, double distance)
         {
             locations.Add(new Location(name, coordinateX, coordinateY, distance));
+            
         }
         /// <summary>
         /// Method to add locatiod into list based on name and distance params
@@ -36,6 +37,7 @@ namespace MyBikeWay
         public void AddLoaction(string name, double distance)
         {
             locations.Add(new Location(name, distance));
+            
         }
         /// <summary>
         /// LINQ query to find and return location by name
@@ -47,7 +49,7 @@ namespace MyBikeWay
 
             var locationQuery = from loc in locations
                                 where loc.Name == name
-                                orderby loc.StartingPointDistance
+                                orderby loc.PreviousPointDistance
                                 select loc;
             foreach (Location loc in locationQuery)
             {
@@ -123,12 +125,12 @@ namespace MyBikeWay
         /// </summary>
         /// <param name="name">Current name</param>
         /// <param name="newDefaultPoint">New distance decimal number (Km)</param>
-        public void UpdateLocationDistance(string name, double newDefaultPoint)
+        public void UpdateLocationDistance(string name, double newPreviousPoint)
         {
             var locationQuery = locations.Find(n => n.Name == name);
             if (locationQuery != null)
             {
-                locationQuery.StartingPointDistance = newDefaultPoint;
+                locationQuery.PreviousPointDistance = newPreviousPoint;
             }
         }
 

@@ -16,12 +16,14 @@ namespace MyBikeWay
         /// Instance of current date and time.
         /// </summary>
         private DateTime currentDate = DateTime.Now;
+        private LinkedList<Location> directions;
         /// <summary>
         /// Constructor inicializing the database LocationsDB
         /// </summary>
         public DirectionMaker()
         {
             database = new LocationsDB();
+            directions = new LinkedList<Location>();
         }
         /// <summary>
         /// Method for getting user input for adding new location to the database with coordinates
@@ -47,7 +49,7 @@ namespace MyBikeWay
                 Console.WriteLine("Please insert number / decimal number only");
             }
             double distance;
-            Console.WriteLine("Insert coordinate distance from default point");
+            Console.WriteLine("Insert distance from previous point");
             while (!double.TryParse(Console.ReadLine(), out distance))
             {
                 Console.WriteLine("Please insert number / decimal number only");
@@ -74,5 +76,6 @@ namespace MyBikeWay
             database.AddLoaction(text, distance);
         }
 
+      
     } 
 }
