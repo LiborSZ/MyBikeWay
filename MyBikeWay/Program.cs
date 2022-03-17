@@ -6,7 +6,11 @@ namespace MyBikeWay
     {
         static void Main(string[] args)
         {
-
+            var dir = new DirectionMaker();
+            dir.AddLocationWithoutCoordinates();
+            dir.AddExistingLocation();
+            dir.AddExistingLocation();
+            dir.WriteDirection();
         }
     }
 }
