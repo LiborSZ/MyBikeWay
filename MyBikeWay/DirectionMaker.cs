@@ -70,7 +70,11 @@ namespace MyBikeWay
                 totalDistance += d.PreviousPointDistance;
                 directionDistance = d.PreviousPointDistance;
                 
-                Console.Write($"{char.ToUpper(d.Name[0])+ d.Name.Substring(1)} - {directionDistance} Km ");
+                Console.Write($"{char.ToUpper(d.Name[0])+ d.Name.Substring(1)} ({directionDistance} Km)");
+                if (d.Name != directions.Last.Value.Name)
+                {
+                    Console.Write(" - ");
+                }
             }
             Console.WriteLine();
             Console.WriteLine($"Total distance is {totalDistance} Km");
