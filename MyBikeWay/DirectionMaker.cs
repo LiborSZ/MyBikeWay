@@ -21,10 +21,6 @@ namespace MyBikeWay
         /// </summary>
         private ValidationMethods validator;
         /// <summary>
-        /// Instance of current date and time.
-        /// </summary>
-        private DateTime currentDate = DateTime.Now;
-        /// <summary>
         /// Linked list for direction
         /// </summary>
         private LinkedList<Location> directions;
