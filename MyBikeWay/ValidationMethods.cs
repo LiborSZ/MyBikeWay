@@ -8,8 +8,6 @@ namespace MyBikeWay
 {
     internal class ValidationMethods
     {
-
-        string text;
         /// <summary>
         /// Method to valid correct double user input
         /// </summary>
