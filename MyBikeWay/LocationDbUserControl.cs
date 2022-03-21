@@ -33,14 +33,14 @@ namespace MyBikeWay
             string text = "";
             validator.EmptyStringValid(text);
             double distance = 0;
-            Console.WriteLine("Insert distance from previous point (inser 0 if default point)");
-            validator.DoubleValid(distance);
+            Console.WriteLine("Insert distance from previous point (insert 0 if default point)");
+            distance = validator.DoubleValid(distance);
             Console.WriteLine("Insert coordinate X");
             double x = 0;
-            validator.DoubleValid(x);
+            x = validator.DoubleValid(x);
             double y = 0;
             Console.WriteLine("Insert coordinate Y");
-            validator.DoubleValid(y);
+            y = validator.DoubleValid(y);
 
             database.AddLoaction(text, x, y, distance);
             return database.returnLast();
@@ -52,10 +52,10 @@ namespace MyBikeWay
         {
             Console.WriteLine("Insert location name");
             string text = "";
-            validator.EmptyStringValid(text);
+            text = validator.EmptyStringValid(text);
             double distance = 0;
-            Console.WriteLine("Insert coordinate distance from previous point");
-            validator.DoubleValid(distance);
+            Console.WriteLine("Insert distance from previous point (insert 0 if default point)");
+            distance = validator.DoubleValid(distance);
             database.AddLoaction(text, distance);
             return database.returnLast();
         }

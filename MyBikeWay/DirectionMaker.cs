@@ -59,8 +59,8 @@ namespace MyBikeWay
         /// </summary>
         public void WriteDirection()
         {
-            double directionDistance = 0;
-            double totalDistance = 0;
+            double directionDistance=0;
+            double totalDistance =0;
             
             Console.WriteLine("Your direction:");
             
