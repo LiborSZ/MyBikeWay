@@ -10,6 +10,7 @@ namespace MyBikeWay
             dir.AddLocationWithoutCoordinates();
             dir.AddExistingLocation();
             dir.AddExistingLocation();
+            dir.UpdateLocation();
             dir.WriteDirection();
         }
     }

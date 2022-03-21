@@ -12,6 +12,7 @@ namespace MyBikeWay
         /// Instance of LocationsDB databse
         /// </summary>
         private LocationsDB database;
+        private ValidationMethods validator;
         /// <summary>
         /// Instance of current date and time.
         /// </summary>
@@ -27,6 +28,7 @@ namespace MyBikeWay
         {
             database = new LocationsDB();
             directions = new LinkedList<Location>();
+            validator = new ValidationMethods();
         }
         /// <summary>
         /// Method for getting user input for adding new location to the database with coordinates
@@ -153,50 +155,40 @@ namespace MyBikeWay
         /// Method for location atribute update
         /// </summary>
         /// <param name="name"></param>
-        public void UpdateLocation(string name)
+        public void UpdateLocation()
         {
-            string atribute;
-            string newName;
-            double newCoordinate;
-            Console.WriteLine("Enter atribute to update or Exit: ");
+            string name ="";
+            name = validator.StringValid(name);
+            string attribute ="";
+            string newName ="";
+            double newCoordinate = 0;
             Console.WriteLine("Name | Distance | Location X | Location Y | Exit");
+            Console.WriteLine("Enter attribute to update or Exit: ");
 
-            while (string.IsNullOrEmpty(atribute = Console.ReadLine().ToLower().Trim()))
-            {
-                Console.WriteLine("Please enter atribute to update: ");
-            }
-
-            switch (atribute) 
+            Console.WriteLine(attribute);
+            attribute = validator.StringValid(attribute);
+            switch (attribute) 
             {
                 case "name":
-                    while (string.IsNullOrEmpty(newName = Console.ReadLine().ToLower().Trim()))
-                    {
-                        Console.WriteLine("Please enter new name: ");
-                    }
+                    validator.StringValid(newName);
                     database.UpdateLocationName(name, newName);
                     break;
                 case "distance":
-                    while (!double.TryParse(Console.ReadLine(), out newCoordinate))
-                    {
-                        Console.WriteLine("Please enter new distance: ");
-                    }
+                    validator.DoubleValid(newCoordinate);
                     database.UpdateLocationDistance(name, newCoordinate);
                     break;
                 case "location x":
-                    while (!double.TryParse(Console.ReadLine(), out newCoordinate))
-                    {
-                        Console.WriteLine("Please enter new coordinate X: ");
-                    }
+                    validator.DoubleValid(newCoordinate);
                     database.UpdateLocationDistance(name, newCoordinate);
                     break;
                 case "location y":
-                    while (!double.TryParse(Console.ReadLine(), out newCoordinate))
-                    {
-                        Console.WriteLine("Please enter new coordinate Y: ");
-                    }
+                    validator.DoubleValid(newCoordinate);
                     database.UpdateLocationDistance(name, newCoordinate);
                     break;
                 case "exit":
+                    break;
+                    default:
+                    Console.WriteLine("Enter correct attribute to update or exit");
                     break;
 
             }

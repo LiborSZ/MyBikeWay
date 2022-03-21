@@ -55,7 +55,7 @@ namespace MyBikeWay
             {
                 return loc;
             }
-            Console.Write("Location was not found");
+            Console.WriteLine("Location was not found");
             return null;
 
         }
