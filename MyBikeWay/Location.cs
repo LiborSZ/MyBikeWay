@@ -54,7 +54,7 @@ namespace MyBikeWay
         /// <returns></returns>
         public override string ToString()
         {
-            return string.Format($"{Name} is {PreviousPointDistance} km away from the starting location");
+            return string.Format($"{Name} is {PreviousPointDistance} km away from the location");
         }
     }
 }
