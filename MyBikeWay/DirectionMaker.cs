@@ -36,29 +36,17 @@ namespace MyBikeWay
         public Location AddLocationWithCoordinates()
         {
             Console.WriteLine("Insert location name");
-            string text;
-            while (string.IsNullOrEmpty(text = Console.ReadLine().ToLower().Trim()))
-            {
-                Console.WriteLine("Name cannot be empty, please insert name again");
-            }
-            double distance;
+            string text ="";
+            validator.EmptyStringValid(text);
+            double distance =0;
             Console.WriteLine("Insert distance from previous point (inser 0 if default point)");
-            while (!double.TryParse(Console.ReadLine(), out distance))
-            {
-                Console.WriteLine("Please insert number / decimal number only");
-            }
+            validator.DoubleValid(distance);
             Console.WriteLine("Insert coordinate X");
-            double x;
-            while (!double.TryParse(Console.ReadLine(), out x))
-            {
-                Console.WriteLine("Please insert number / decimal number only");
-            }
-            double y;
+            double x =0;
+            validator.DoubleValid(x);
+            double y=0;
             Console.WriteLine("Insert coordinate Y");
-            while (!double.TryParse(Console.ReadLine(), out y))
-            {
-                Console.WriteLine("Please insert number / decimal number only");
-            }
+            validator.DoubleValid(y);
 
             database.AddLoaction(text, x, y, distance);
             return database.returnLast();
@@ -69,17 +57,11 @@ namespace MyBikeWay
         public Location AddLocationWithoutCoordinates()
         {
             Console.WriteLine("Insert location name");
-            string text;
-            while (string.IsNullOrEmpty(text = Console.ReadLine().ToLower().Trim()))
-            {
-                Console.WriteLine("Name cannot be empty, please insert name again");
-            }
-            double distance;
+            string text="";
+            validator.EmptyStringValid(text);
+            double distance =0;
             Console.WriteLine("Insert coordinate distance from previous point");
-            while (!double.TryParse(Console.ReadLine(), out distance))
-            {
-                Console.WriteLine("Please insert number / decimal number only");
-            }
+            validator.DoubleValid(distance);
             database.AddLoaction(text, distance);
             return database.returnLast();
         }
@@ -143,11 +125,8 @@ namespace MyBikeWay
         /// <param name="name"></param>
         public void AddExistingLocation()
         {
-            string name;
-            while (string.IsNullOrEmpty(name = Console.ReadLine().ToLower().Trim()))
-            {
-                Console.WriteLine("Please enter atribute to update: ");
-            }
+            string name ="";
+            validator.EmptyStringValid(name);
             directions.AddLast(database.FindLocation(name));
         }
 
@@ -163,14 +142,14 @@ namespace MyBikeWay
             string newName ="";
             double newCoordinate = 0;
             Console.WriteLine("Name | Distance | Location X | Location Y | Exit");
-            Console.WriteLine("Enter attribute to update or Exit: ");
+            Console.WriteLine("Enter attribute to update or exit: ");
 
             Console.WriteLine(attribute);
             attribute = validator.StringValid(attribute);
             switch (attribute) 
             {
                 case "name":
-                    validator.StringValid(newName);
+                    validator.EmptyStringValid(newName);
                     database.UpdateLocationName(name, newName);
                     break;
                 case "distance":
