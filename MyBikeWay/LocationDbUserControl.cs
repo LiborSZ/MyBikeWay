@@ -110,7 +110,11 @@ namespace MyBikeWay
                     break;
 
             }
+        }
 
+        public void WriteLocationsInDb()
+        {
+            Console.WriteLine(database.ReturnAll());
         }
 
     }

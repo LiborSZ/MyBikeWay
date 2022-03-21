@@ -141,5 +141,16 @@ namespace MyBikeWay
         {
             return locations.Last();
         }
+
+        public string ReturnAll()
+        {
+            string location = "";
+            foreach (var loc in locations)
+            {
+                location += loc;
+            }
+
+            return location;
+        }
     }
 }
