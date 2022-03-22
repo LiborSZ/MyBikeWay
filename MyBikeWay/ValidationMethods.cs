@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace MyBikeWay
 {
-    internal class ValidationMethods
+    static class ValidationMethods
     {
         /// <summary>
         /// Method to valid correct double user input
         /// </summary>
         /// <param name="number"></param>
         /// <returns></returns>
-        public double DoubleValid(double number)
+        public static double DoubleValid(double number)
         {
             while (!double.TryParse(Console.ReadLine(), out number))
             {
@@ -26,7 +26,7 @@ namespace MyBikeWay
         /// </summary>
         /// <param name="txt"></param>
         /// <returns></returns>
-        public string EmptyStringValid(string txt)
+        public static string EmptyStringValid(string txt)
         {
             
             while (string.IsNullOrEmpty(txt = Console.ReadLine().ToLower().Trim()))
@@ -40,7 +40,7 @@ namespace MyBikeWay
         /// </summary>
         /// <param name="txt"></param>
         /// <returns></returns>
-        public string StringValid(string txt)
+        public static string StringValid(string txt)
         {
 
             while (string.IsNullOrEmpty(txt = Console.ReadLine().ToLower().Trim()))

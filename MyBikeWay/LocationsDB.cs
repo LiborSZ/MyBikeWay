@@ -63,8 +63,10 @@ namespace MyBikeWay
         /// Removing method for locations DB
         /// </summary>
         /// <param name="name">Location name</param>
-        public void DeleteLocation(string name)
+        public void DeleteLocation()
         {
+            string name = "";
+            ValidationMethods.EmptyStringValid(name);
             List<Location> found = new List<Location>();
             found.Add(FindLocation(name));
             foreach (Location loc in found)

@@ -18,10 +18,6 @@ namespace MyBikeWay
         /// </summary>
         private LocationDbUserControl dbControl;
         /// <summary>
-        /// Instance of ValidationMethods Class
-        /// </summary>
-        private ValidationMethods validator;
-        /// <summary>
         /// Linked list for direction
         /// </summary>
         private LinkedList<Location> directions;
@@ -33,7 +29,6 @@ namespace MyBikeWay
             Name = name;
             database = new LocationsDB();
             directions = new LinkedList<Location>();
-            validator = new ValidationMethods();
             dbControl = new LocationDbUserControl();
         }
         /// <summary>
@@ -94,7 +89,7 @@ namespace MyBikeWay
         public void AddExistingLocation()
         {
             string name ="";
-            validator.EmptyStringValid(name);
+            ValidationMethods.EmptyStringValid(name);
             directions.AddLast(database.FindLocation(name));
         }
 

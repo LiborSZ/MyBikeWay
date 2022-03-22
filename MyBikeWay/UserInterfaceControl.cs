@@ -51,11 +51,34 @@ namespace MyBikeWay
             Console.WriteLine("-----------------");
             Console.WriteLine("Please select operation: \n1 - Create and add into directions new Location with coordinates " +
                 "\n2 - Create and add into directions new location without coordinates" +
-                "\n3 - Adding existing location into directions \n4 - Remove location from directions \n5 - Show direction \n6 - Exit");
+                "\n3 - Adding existing location into directions \n4 - Remove location from directions \n5 - Show direction \n6 - Switch to locations" +
+                " \n7 - Exit");
 
         }
 
-        
+        public void Start()
+        {
+            Console.Clear();
+            OpeningInterface();
+            int key = 0;
+            while (key != 7)
+            {
+                switch (key)
+                {
+                    case 1:
+                        locationUser.AddLocationWithCoordinates();
+                        break;
+                    case 2:
+                        locationUser.AddLocationWithoutCoordinates();
+                        break;
+                    case 3:
+                        locationUser.RemoveLocationDB();
+                        break;
+
+                }
+            }
+            
+        }
 
 
     }
