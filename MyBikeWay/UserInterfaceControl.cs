@@ -26,7 +26,6 @@ namespace MyBikeWay
         public UserInterfaceControl()
         {
             locationUser = new LocationDbUserControl();
-            direction = new DirectionMaker();
         }
 
         public void OpeningInterface()
@@ -55,6 +54,9 @@ namespace MyBikeWay
                 "\n3 - Adding existing location into directions \n4 - Remove location from directions \n5 - Show direction \n6 - Exit");
 
         }
+
+        
+
 
     }
 }
