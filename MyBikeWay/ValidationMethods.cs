@@ -58,7 +58,7 @@ namespace MyBikeWay
         {
             while (!int.TryParse(Console.ReadLine(), out number))
             {
-                Console.WriteLine("Please enter correct number or decimal number: ");
+                Console.WriteLine("Please enter correct operation number: ");
             }
             return number;
         }
