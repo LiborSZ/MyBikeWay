@@ -52,8 +52,10 @@ namespace MyBikeWay
         /// Removing method for directions DB
         /// </summary>
         /// <param name="name">Location name</param>
-        public void DeleteDirection(string name)
+        public void DeleteDirection()
         {
+            string name = "";
+            name = ValidationMethods.EmptyStringValid(name);
             List<DirectionMaker> found = new List<DirectionMaker>();
             found.Add(FindDirection(name));
             foreach (DirectionMaker direction in found)
@@ -63,7 +65,7 @@ namespace MyBikeWay
                     if (direction.Name == name)
                     {
                         directions.Remove(direction);
-                        Console.WriteLine("Location {0} removed", name);
+                        Console.WriteLine("direction removed");
                     }
                     else
                     {

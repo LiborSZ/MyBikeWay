@@ -106,7 +106,9 @@ namespace MyBikeWay
 
             }
         }
-
+        /// <summary>
+        /// Write all locations in database to the console
+        /// </summary>
         public void WriteLocationsInDb()
         {
             Console.WriteLine(database.ReturnAll());

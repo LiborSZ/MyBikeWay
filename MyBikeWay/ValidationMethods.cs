@@ -59,7 +59,7 @@ namespace MyBikeWay
             while (!int.TryParse(Console.ReadLine(), out number))
             {
                 Console.WriteLine("Please enter correct operation number");
-                Console.Write("Operation:");
+                Console.Write("Operation: ");
             }
             return number;
         }

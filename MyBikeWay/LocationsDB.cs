@@ -66,7 +66,7 @@ namespace MyBikeWay
         public void DeleteLocation()
         {
             string name = "";
-            ValidationMethods.EmptyStringValid(name);
+            name = ValidationMethods.EmptyStringValid(name);
             List<Location> found = new List<Location>();
             found.Add(FindLocation(name));
             foreach (Location loc in found)
@@ -76,7 +76,7 @@ namespace MyBikeWay
                     if (loc.Name == name)
                     {
                         locations.Remove(loc);
-                        Console.WriteLine("Location {0} removed", name);
+                        Console.WriteLine("Location removed");
                     }
                     else
                     {
@@ -147,7 +147,10 @@ namespace MyBikeWay
         {
             return locations.Last();
         }
-
+        /// <summary>
+        /// Returns string of all locations in database
+        /// </summary>
+        /// <returns></returns>
         public string ReturnAll()
         {
             string location = "";
