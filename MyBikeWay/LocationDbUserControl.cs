@@ -26,7 +26,7 @@ namespace MyBikeWay
         {
             Console.WriteLine("Insert location name");
             string text = "";
-            ValidationMethods.EmptyStringValid(text);
+            text = ValidationMethods.EmptyStringValid(text);
             double distance = 0;
             Console.WriteLine("Insert distance from previous point (insert 0 if default point)");
             distance = ValidationMethods.DoubleValid(distance);
