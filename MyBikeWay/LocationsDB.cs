@@ -71,15 +71,19 @@ namespace MyBikeWay
             found.Add(FindLocation(name));
             foreach (Location loc in found)
             {
-                if (loc.Name == name)
+                if (loc?.Name != null)
                 {
-                    locations.Remove(loc);
-                    Console.WriteLine("Location {0} removed", name);
+                    if (loc.Name == name)
+                    {
+                        locations.Remove(loc);
+                        Console.WriteLine("Location {0} removed", name);
+                    }
+                    else
+                    {
+                        Console.Write("Location was not found");
+                    }
                 }
-                else
-                {
-                    Console.Write("Location was not found");
-                }
+                
             }
 
         }

@@ -58,15 +58,19 @@ namespace MyBikeWay
             found.Add(FindDirection(name));
             foreach (DirectionMaker direction in found)
             {
-                if (direction.Name == name)
+                if (direction?.Name != null)
                 {
-                    directions.Remove(direction);
-                    Console.WriteLine("Location {0} removed", name);
+                    if (direction.Name == name)
+                    {
+                        directions.Remove(direction);
+                        Console.WriteLine("Location {0} removed", name);
+                    }
+                    else
+                    {
+                        Console.Write("Location was not found");
+                    }
                 }
-                else
-                {
-                    Console.Write("Location was not found");
-                }
+                
             }
 
         }
