@@ -49,5 +49,18 @@ namespace MyBikeWay
             }
             return txt;
         }
+        /// <summary>
+        /// Method to valid correct int user input
+        /// </summary>
+        /// <param name="number"></param>
+        /// <returns></returns>
+        public static int IntValid(int number)
+        {
+            while (!int.TryParse(Console.ReadLine(), out number))
+            {
+                Console.WriteLine("Please enter correct number or decimal number: ");
+            }
+            return number;
+        }
     }
 }
