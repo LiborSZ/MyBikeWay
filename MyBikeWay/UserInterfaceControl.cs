@@ -37,7 +37,7 @@ namespace MyBikeWay
             Console.WriteLine("Locations Database");
             Console.WriteLine("------------------");
             Console.WriteLine("Please select operation: \n1 - Create new Location with coordinates \n2 - Create new location without coordinates" +
-                "\n3 - Remove location \n4 - Update location \n5 - Switch to direction making \n6 - Show saved locations \n7 - Exit");
+                "\n3 - Remove location \n4 - Update location \n5 - Show saved locations \n6 - Switch to direction making \n7 - Exit");
             
         }
 
@@ -61,6 +61,7 @@ namespace MyBikeWay
             Console.Clear();
             OpeningInterface();
             int key = 0;
+            key = ValidationMethods.IntValid(key);
             while (key != 7)
             {
                 switch (key)
@@ -74,7 +75,20 @@ namespace MyBikeWay
                     case 3:
                         locationUser.RemoveLocationDB();
                         break;
-
+                    case 4:
+                        locationUser.UpdateLocation();
+                        break;
+                    case 5:
+                        locationUser.WriteLocationsInDb();
+                        break;
+                    case 6:
+                        Console.Clear();
+                        DirectionInterface();
+                        // TODO call method to operate directions
+                        break;
+                    default:
+                        Console.WriteLine("please enter correct operation number");
+                        break;
                 }
             }
             
