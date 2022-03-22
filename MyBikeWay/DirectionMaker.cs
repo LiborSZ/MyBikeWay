@@ -12,6 +12,7 @@ namespace MyBikeWay
         /// Instance of LocationsDB class
         /// </summary>
         private LocationsDB database;
+        public string Name { get; private set; }
         /// <summary>
         /// Instance of LocationDbUserControl class
         /// </summary>
@@ -27,8 +28,9 @@ namespace MyBikeWay
         /// <summary>
         /// Constructor inicializing DB, user, validation classes and linked list
         /// </summary>
-        public DirectionMaker()
+        public DirectionMaker(string name)
         {
+            Name = name;
             database = new LocationsDB();
             directions = new LinkedList<Location>();
             validator = new ValidationMethods();
