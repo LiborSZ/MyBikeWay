@@ -9,10 +9,6 @@ namespace MyBikeWay
     internal class LocationDbUserControl
     {
         /// <summary>
-        /// Instance of ValidationMethods Class
-        /// </summary>
-        ValidationMethods validator;
-        /// <summary>
         /// Instance of LocationsDB class
         /// </summary>
         LocationsDB database;
@@ -21,7 +17,6 @@ namespace MyBikeWay
         /// </summary>
         public LocationDbUserControl()
         {
-            validator = new ValidationMethods();
             database = new LocationsDB();
         }
         /// <summary>
@@ -31,16 +26,16 @@ namespace MyBikeWay
         {
             Console.WriteLine("Insert location name");
             string text = "";
-            validator.EmptyStringValid(text);
+            ValidationMethods.EmptyStringValid(text);
             double distance = 0;
             Console.WriteLine("Insert distance from previous point (insert 0 if default point)");
-            distance = validator.DoubleValid(distance);
+            distance = ValidationMethods.DoubleValid(distance);
             Console.WriteLine("Insert coordinate X");
             double x = 0;
-            x = validator.DoubleValid(x);
+            x = ValidationMethods.DoubleValid(x);
             double y = 0;
             Console.WriteLine("Insert coordinate Y");
-            y = validator.DoubleValid(y);
+            y = ValidationMethods.DoubleValid(y);
 
             database.AddLoaction(text, x, y, distance);
             return database.returnLast();
@@ -52,10 +47,10 @@ namespace MyBikeWay
         {
             Console.WriteLine("Insert location name");
             string text = "";
-            text = validator.EmptyStringValid(text);
+            text = ValidationMethods.EmptyStringValid(text);
             double distance = 0;
             Console.WriteLine("Insert distance from previous point (insert 0 if default point)");
-            distance = validator.DoubleValid(distance);
+            distance = ValidationMethods.DoubleValid(distance);
             database.AddLoaction(text, distance);
             return database.returnLast();
         }
@@ -64,9 +59,9 @@ namespace MyBikeWay
         /// Method for removing location from DB based on name
         /// </summary>
         /// <param name="name"></param>
-        public void RemoveLocationDB(string name)
+        public void RemoveLocationDB()
         {
-            database.DeleteLocation(name);
+            database.DeleteLocation();
         }
 
         /// <summary>
@@ -76,7 +71,7 @@ namespace MyBikeWay
         public void UpdateLocation()
         {
             string name = "";
-            name = validator.StringValid(name);
+            name = ValidationMethods.StringValid(name);
             string attribute = "";
             string newName = "";
             double newCoordinate = 0;
@@ -84,23 +79,23 @@ namespace MyBikeWay
             Console.WriteLine("Enter attribute to update or exit: ");
 
             Console.WriteLine(attribute);
-            attribute = validator.StringValid(attribute);
+            attribute = ValidationMethods.StringValid(attribute);
             switch (attribute)
             {
                 case "name":
-                    validator.EmptyStringValid(newName);
+                    ValidationMethods.EmptyStringValid(newName);
                     database.UpdateLocationName(name, newName);
                     break;
                 case "distance":
-                    validator.DoubleValid(newCoordinate);
+                    ValidationMethods.DoubleValid(newCoordinate);
                     database.UpdateLocationDistance(name, newCoordinate);
                     break;
                 case "location x":
-                    validator.DoubleValid(newCoordinate);
+                    ValidationMethods.DoubleValid(newCoordinate);
                     database.UpdateLocationDistance(name, newCoordinate);
                     break;
                 case "location y":
-                    validator.DoubleValid(newCoordinate);
+                    ValidationMethods.DoubleValid(newCoordinate);
                     database.UpdateLocationDistance(name, newCoordinate);
                     break;
                 case "exit":
