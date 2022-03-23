@@ -89,7 +89,7 @@ namespace MyBikeWay
         public void AddExistingLocation()
         {
             string name ="";
-            ValidationMethods.EmptyStringValid(name);
+            name = ValidationMethods.EmptyStringValid(name);
             directions.AddLast(database.FindLocation(name));
         }
 
