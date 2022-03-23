@@ -27,7 +27,9 @@ namespace MyBikeWay
         {
             locationUser = new LocationDbUserControl();
         }
-
+        /// <summary>
+        /// Opening graphic interface
+        /// </summary>
         public void OpeningInterface()
         {
             Console.WriteLine("\n--------------------Welcome in the MyBikeWay application--------------------");
@@ -40,7 +42,9 @@ namespace MyBikeWay
                 "\n3 - Remove location \n4 - Update location \n5 - Show saved locations \n6 - Switch to direction making \n7 - Exit");
             
         }
-
+        /// <summary>
+        /// Direction graphic interface
+        /// </summary>
         public void DirectionInterface()
         {
             Console.WriteLine("\n--------------------Welcome in the MyBikeWay application--------------------");
@@ -55,39 +59,53 @@ namespace MyBikeWay
                 " \n7 - Exit");
 
         }
-
+        /// <summary>
+        /// Start method for launching the application
+        /// </summary>
         public void Start()
         {
             Console.Clear();
             OpeningInterface();
             int key = 0;
+            Console.Write("Operation: ");
             key = ValidationMethods.IntValid(key);
             while (key != 7)
             {
                 switch (key)
                 {
                     case 1:
-                        locationUser.AddLocationWithCoordinates();
+                        locationUser.AddLocationWithCoordinatesNoDistance();
+                        Console.Write("Operation: ");
+                        key = ValidationMethods.IntValid(key);
                         break;
                     case 2:
-                        locationUser.AddLocationWithoutCoordinates();
+                        locationUser.AddLocationWithoutCoordinatesNoDistance();
+                        Console.Write("Operation: ");
+                        key = ValidationMethods.IntValid(key);
                         break;
                     case 3:
                         locationUser.RemoveLocationDB();
+                        Console.Write("Operation: ");
+                        key = ValidationMethods.IntValid(key);
                         break;
                     case 4:
                         locationUser.UpdateLocation();
+                        Console.Write("Operation: ");
+                        key = ValidationMethods.IntValid(key);
                         break;
                     case 5:
-                        locationUser.WriteLocationsInDb();
+                        locationUser.WriteLocationsInDb();;
+                        Console.Write("Operation: ");
+                        key = ValidationMethods.IntValid(key);
                         break;
                     case 6:
-                        Console.Clear();
                         DirectionInterface();
                         // TODO call method to operate directions
                         break;
                     default:
                         Console.WriteLine("please enter correct operation number");
+                        Console.Write("Operation: ");
+                        key = ValidationMethods.IntValid(key);
                         break;
                 }
             }

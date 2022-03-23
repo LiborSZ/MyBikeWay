@@ -56,6 +56,36 @@ namespace MyBikeWay
         }
 
         /// <summary>
+        /// Method for getting user input for adding new location to the database with coordinates
+        /// </summary>
+        public Location AddLocationWithCoordinatesNoDistance()
+        {
+            Console.WriteLine("Insert location name");
+            string text = "";
+            text = ValidationMethods.EmptyStringValid(text);
+            Console.WriteLine("Insert coordinate X");
+            double x = 0;
+            x = ValidationMethods.DoubleValid(x);
+            double y = 0;
+            Console.WriteLine("Insert coordinate Y");
+            y = ValidationMethods.DoubleValid(y);
+
+            database.AddLoaction(text, x, y);
+            return database.returnLast();
+        }
+        /// <summary>
+        /// Method for getting user input for adding new location to the database without coordinates
+        /// </summary>
+        public Location AddLocationWithoutCoordinatesNoDistance()
+        {
+            Console.WriteLine("Insert location name");
+            string text = "";
+            text = ValidationMethods.EmptyStringValid(text);
+            database.AddLoaction(text);
+            return database.returnLast();
+        }
+
+        /// <summary>
         /// Method for removing location from DB based on name
         /// </summary>
         /// <param name="name"></param>

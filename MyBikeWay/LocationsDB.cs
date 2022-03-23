@@ -40,6 +40,28 @@ namespace MyBikeWay
 
         }
         /// <summary>
+        /// Method to add locatiod into list based on name and coordinates
+        /// </summary>
+        /// <param name="name">Location name</param>
+        /// <param name="coordinateX">Location coordinate X</param>
+        /// <param name="coordinateY">Location coordinate Y</param>
+        /// <param name="distance">Distance from previous point</param>
+        public void AddLoaction(string name, double coordinateX, double coordinateY)
+        {
+            locations.Add(new Location(name, coordinateX, coordinateY));
+
+        }
+        /// <summary>
+        /// Method to add locatiod into list based on name
+        /// </summary>
+        /// <param name="name">Location name</param>
+        /// <param name="distance">Distance from previous point</param>
+        public void AddLoaction(string name)
+        {
+            locations.Add(new Location(name));
+
+        }
+        /// <summary>
         /// LINQ query to find and return location by name
         /// </summary>
         /// <param name="name">Location name</param>

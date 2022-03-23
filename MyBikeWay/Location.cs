@@ -39,7 +39,7 @@ namespace MyBikeWay
             PreviousPointDistance = distance;
         }
         /// <summary>
-        /// Constructor overload for name and distance only
+        /// Constructor overload for name and coordinates only
         /// </summary>
         /// <param name="name">Location name</param>
         /// <param name="distance">Distance from defualt point</param>
@@ -47,6 +47,23 @@ namespace MyBikeWay
         {
             Name = name;
             PreviousPointDistance = distance;
+        }
+        public Location(string name, double coordinateX, double coordinateY)
+        {
+            Name = name;
+            CoordinateX = coordinateX;
+            CoordinateY = coordinateY;
+            
+        }
+        /// <summary>
+        /// Constructor overload for name only
+        /// </summary>
+        /// <param name="name">Location name</param>
+        /// <param name="distance">Distance from defualt point</param>
+        public Location(string name)
+        {
+            Name = name;
+            
         }
         /// <summary>
         /// Returns name and distance from previous point as string
