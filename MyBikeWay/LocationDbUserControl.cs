@@ -71,39 +71,48 @@ namespace MyBikeWay
         public void UpdateLocation()
         {
             string name = "";
+            Console.WriteLine("Please enter location name to update: ");
+            Console.Write("Name: ");
             name = ValidationMethods.StringValid(name);
-            string attribute = "";
-            string newName = "";
-            double newCoordinate = 0;
-            Console.WriteLine("Name | Distance | Location X | Location Y | Exit");
-            Console.WriteLine("Enter attribute to update or exit: ");
-
-            Console.WriteLine(attribute);
-            attribute = ValidationMethods.StringValid(attribute);
-            switch (attribute)
+            if (database?.FindLocation(name) != null)
             {
-                case "name":
-                    ValidationMethods.EmptyStringValid(newName);
-                    database.UpdateLocationName(name, newName);
-                    break;
-                case "distance":
-                    ValidationMethods.DoubleValid(newCoordinate);
-                    database.UpdateLocationDistance(name, newCoordinate);
-                    break;
-                case "location x":
-                    ValidationMethods.DoubleValid(newCoordinate);
-                    database.UpdateLocationDistance(name, newCoordinate);
-                    break;
-                case "location y":
-                    ValidationMethods.DoubleValid(newCoordinate);
-                    database.UpdateLocationDistance(name, newCoordinate);
-                    break;
-                case "exit":
-                    break;
-                default:
-                    Console.WriteLine("Enter correct attribute to update or exit");
-                    break;
+                string attribute = "";
+                string newName = "";
+                double newCoordinate = 0;
+                Console.WriteLine("Name | Distance | Location X | Location Y | Exit");
+                Console.WriteLine("Enter attribute to update or exit: ");
+                Console.Write("Attribute: ");
+                attribute = ValidationMethods.StringValid(attribute);
+                switch (attribute)
+                {
+                    case "name":
+                        Console.Write("Select new name: ");
+                        newName = ValidationMethods.EmptyStringValid(newName);
+                        database.UpdateLocationName(name, newName);
+                        break;
+                    case "distance":
+                        Console.Write("Select new distance: ");
+                        newCoordinate = ValidationMethods.DoubleValid(newCoordinate);
+                        database.UpdateLocationDistance(name, newCoordinate);
+                        break;
+                    case "location x":
+                        Console.Write("Select new location x: ");
+                        newCoordinate = ValidationMethods.DoubleValid(newCoordinate);
+                        database.UpdateLocationDistance(name, newCoordinate);
+                        break;
+                    case "location y":
+                        Console.Write("Select new location y: ");
+                        newCoordinate = ValidationMethods.DoubleValid(newCoordinate);
+                        database.UpdateLocationDistance(name, newCoordinate);
+                        break;
+                    case "exit":
+                        break;
+                    default:
+                        Console.WriteLine("Enter correct attribute to update or exit");
+                        break;
 
+                }
+               
             }
         }
         /// <summary>
