@@ -11,13 +11,13 @@ namespace MyBikeWay
         /// <summary>
         /// Instance of LocationsDB class
         /// </summary>
-        LocationsDB database;
+        LocationsDb database;
         /// <summary>
         /// Constructor initializing valid and location database classes
         /// </summary>
         public LocationDbUserControl()
         {
-            database = new LocationsDB();
+            database = new LocationsDb();
         }
         /// <summary>
         /// Method for getting user input for adding new location to the database with coordinates

@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace MyBikeWay
 {
-    internal class LocationsDB
+    internal class LocationsDb
     {
         /// <summary>
         /// Private instance for List of locations
@@ -13,7 +13,7 @@ namespace MyBikeWay
         /// <summary>
         /// Constructor creating new List of locations
         /// </summary>
-        public LocationsDB()
+        public LocationsDb()
         {
             locations = new List<Location>();
         }

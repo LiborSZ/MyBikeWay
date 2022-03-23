@@ -11,7 +11,7 @@ namespace MyBikeWay
         /// <summary>
         /// Instance of LocationsDB class
         /// </summary>
-        private LocationsDB database;
+        private LocationsDb database;
         public string Name { get; private set; }
         /// <summary>
         /// Instance of LocationDbUserControl class
@@ -27,7 +27,7 @@ namespace MyBikeWay
         public DirectionMaker(string name)
         {
             Name = name;
-            database = new LocationsDB();
+            database = new LocationsDb();
             directions = new LinkedList<Location>();
             dbControl = new LocationDbUserControl();
         }
