@@ -8,6 +8,8 @@ namespace MyBikeWay
         {
             var exe = new UserInterfaceControl();
             exe.Start();
+            
+
         }
     }
 }

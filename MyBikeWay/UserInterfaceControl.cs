@@ -40,7 +40,7 @@ namespace MyBikeWay
             Console.WriteLine("------------------");
             Console.WriteLine("Please select operation: \n1 - Create new Location with coordinates \n2 - Create new location without coordinates" +
                 "\n3 - Remove location \n4 - Update location \n5 - Show saved locations \n6 - Switch to direction making \n7 - Exit");
-            
+
         }
         /// <summary>
         /// Direction graphic interface
@@ -94,13 +94,12 @@ namespace MyBikeWay
                         key = ValidationMethods.IntValid(key);
                         break;
                     case 5:
-                        locationUser.WriteLocationsInDb();;
+                        locationUser.WriteLocationsInDb(); ;
                         Console.Write("Operation: ");
                         key = ValidationMethods.IntValid(key);
                         break;
                     case 6:
-                        DirectionInterface();
-                        // TODO call method to operate directions
+                        DirectionControl();
                         break;
                     default:
                         Console.WriteLine("please enter correct operation number");
@@ -109,9 +108,57 @@ namespace MyBikeWay
                         break;
                 }
             }
-            
+
         }
-
-
+        /// <summary>
+        /// Method for direction making operations
+        /// </summary>
+        public void DirectionControl()
+        {
+            Console.Clear ();
+            DirectionInterface();
+            int key = 0;
+            Console.Write("Operation: ");
+            key = ValidationMethods.IntValid(key);
+            while (key != 7)
+            {
+                switch (key)
+                {
+                    case 1:
+                        direction.AddLocationDirection(true);
+                        Console.Write("Operation: ");
+                        key = ValidationMethods.IntValid(key);
+                        break;
+                    case 2:
+                        direction.AddLocationDirection(false);
+                        Console.Write("Operation: ");
+                        key = ValidationMethods.IntValid(key);
+                        break;
+                    case 3:
+                        direction.AddExistingLocation();
+                        Console.Write("Operation: ");
+                        key = ValidationMethods.IntValid(key);
+                        break;
+                    case 4:
+                        direction.RemoveLocationDirection();
+                        Console.Write("Operation: ");
+                        key = ValidationMethods.IntValid(key);
+                        break;
+                    case 5:
+                        direction.WriteDirection();
+                        Console.Write("Operation: ");
+                        key = ValidationMethods.IntValid(key);
+                        break;
+                    case 6:
+                        Start();
+                        break;
+                    default:
+                        Console.WriteLine("please enter correct operation number");
+                        Console.Write("Operation: ");
+                        key = ValidationMethods.IntValid(key);
+                        break;
+                }
+            }
+        }
     }
 }

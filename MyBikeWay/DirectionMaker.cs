@@ -77,8 +77,10 @@ namespace MyBikeWay
         /// Method for removing location from direction based on name
         /// </summary>
         /// <param name="name"></param>
-        public void RemoveLocationDirection(string name)
+        public void RemoveLocationDirection()
         {
+            string name = "";
+            name = ValidationMethods.EmptyStringValid(name);
             directions.Remove(database.FindLocation(name));
         }
         
