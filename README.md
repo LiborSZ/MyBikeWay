@@ -8,4 +8,4 @@ Basic purpose of this project was to learn and excersize
 - Working with classes (OOP principles)
 - GIT commands
 - LINQ queries
-- Working on project with more and coupled classes
+- Working on project with more coupled classes
