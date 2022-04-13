@@ -9,3 +9,8 @@ Basic purpose of this project was to learn and excersize
 - GIT commands
 - LINQ queries
 - Working on project with more coupled classes
+
+Next steps:
+- Update project to not violate the SOLID principles. 
+- Use dependency injection to instaciate low classes and make them less coupled.
+- Learn unit tests.
