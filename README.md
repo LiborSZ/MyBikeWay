@@ -11,6 +11,6 @@ Basic purpose of this project was to learn and excersize
 - Working on project with more coupled classes
 
 Next steps:
-- Update project to not violate the SOLID principles. 
-- Use dependency injection to instaciate low classes and make them less coupled.
-- Learn unit tests.
+- Update project to not violate the SOLID principles - ongoing
+- Use dependency injection to instaciate low classes and make them less coupled - ongoing
+- Learn unit tests - ongoing
